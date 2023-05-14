@@ -8,8 +8,6 @@ e.preventDefault();
 const form = e.target;
 const formData = new FormData(form);
 
-fetch('/some-api', { method: form.method, body: formData });
-
 const formJson = Object.fromEntries(formData.entries());
 console.log(formJson);
 
