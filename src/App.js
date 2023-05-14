@@ -1,6 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 
+function handleSubmit(e) {
+
+e.preventDefault();
+
+const form = e.target;
+const formData = new FormData(form);
+
+fetch('/some-api', { method: form.method, body: formData });
+
+const formJson = Object.fromEntries(formData.entries());
+console.log(formJson);
+
+}
+
 function App() {
   return (
     <div className="App">
@@ -9,16 +23,26 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>React Quiz App</h2>
+        <p>Question 1. What is 1 + 1?</p>
+        <form method="post" onSubmit={handleSubmit}>
+            <label>
+              <input type="radio" name="answer_option_question1" value="option1" />
+              1
+            </label>
+            <label>
+              <input type="radio" name="answer_option_question1" value="option2" defaultChecked={true} />
+              2
+            </label>
+            <hr />
+        <button type="submit">Submit answer</button>
+        </form>
+
       </header>
+
+      
     </div>
+    
   );
 }
 
