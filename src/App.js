@@ -11,6 +11,15 @@ const formData = new FormData(form);
 const formJson = Object.fromEntries(formData.entries());
 console.log(formJson);
 
+const Quiz = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [selectedAnswer, setSelectedAnswer] = useState('')
+  const [score, setScore] = useState({
+    score: 0,
+    correctAnswers: 0,
+    wrongAnswers: 0,
+  })
+
 }
 
 function App() {
@@ -18,30 +27,33 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h2>React Quiz App</h2>
-        <p>Question 1. What is 1 + 1?</p>
-        <form method="post" onSubmit={handleSubmit}>
-            <label>
-              <input type="radio" name="answer_option_question1" value="option1" />
-              1
-            </label>
-            <label>
-              <input type="radio" name="answer_option_question1" value="option2" defaultChecked={true} />
-              2
-            </label>
-            <hr />
-        <button type="submit">Submit answer</button>
-        </form>
+        <h1>React Quiz App</h1>
+        <h2>Question 1. What is 1 + 1?</h2>
+        {
+          options: [
+            {id:0, text:"1"},
+            {id:1. text:"2"},
+          ] 
 
+        }
+          
       </header>
 
       
     </div>
-    
+
   );
 }
 
 export default App;
+
+// 14 May 2023
+// maybe don't need to submit for the first question
+// just clicking on the question will trigger to next question?
+// and then the last question will trigger the total marks overall.
+// https://react.dev/learn/conditional-rendering
+
+// update 15 May 2023
+// declare question number
+// declare selected answer
+// declare score
